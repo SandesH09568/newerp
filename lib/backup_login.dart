@@ -151,7 +151,7 @@ class MyHome extends StatelessWidget {
                                   onSaved: (input) => _password = input!),
                             ),
                             const SizedBox(height: 20),
-                            Column(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
@@ -170,7 +170,7 @@ class MyHome extends StatelessWidget {
                                     child: const Text('SignUp',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 15.0,
+                                            fontSize: 20.0,
                                             fontWeight: FontWeight.bold)),
                                     // color: Colors.orange,
                                     // shape: RoundedRectangleBorder(
@@ -194,7 +194,7 @@ class MyHome extends StatelessWidget {
                                       'Forgot Password',
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 15.0,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     // color: Colors.orange,
@@ -202,18 +202,33 @@ class MyHome extends StatelessWidget {
                                     //   borderRadius: BorderRadius.circular(20.0),
                                     // ),
                                   ),
-                                )
+                                ),
                               ],
-                            )
+                            ),
+                            Row(children: <Widget>[
+                              Container(
+                                child: GestureDetector(
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: const Text(
+                                            'Already Have An Account?'),
+                                      ),
+                                      Container(
+                                        child: const Text('Log In'),
+                                      )
+                                    ],
+                                  ),
+
+                                  // onTap: navigateToLogin,
+                                ),
+                              )
+                            ])
                           ],
                         ),
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    child: Text('Already Have An Account?'),
-                    // onTap: navigateToLogin,
-                  )
                 ],
               ),
             ),
