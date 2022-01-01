@@ -1,75 +1,19 @@
-// ignore_for_file: unnecessary_new
-
 import 'package:flutter/material.dart';
-
-import 'signup.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
-// import 'SignUp.dart';
+// import 'signup.dart';
 
-class Login extends StatefulWidget {
+// import 'package:flutter/material.dart';
+
+class SignUp extends StatefulWidget {
+  SignUp({Key? key}) : super(key: key);
+
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-late String _name, _email, _password;
+late String _name, _email, _password, _kbtug, _addhar, _prn, _kbtemail, _phone;
 
-class _LoginState extends State<Login> {
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-  // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  // checkAuthentification() async {
-  //   _auth.authStateChanges().listen((user) {
-  //     if (user != null) {
-  //       print(user);
-
-  //       Navigator.pushReplacementNamed(context, "/");
-  //     }
-  //   });
-  // }
-
-  @override
-  void initState() {
-    super.initState();
-    // this.checkAuthentification();
-  }
-
-  // login() async {
-  //   if (_formKey.currentState!.validate()) {
-  //     _formKey.currentState!.save();
-
-  //     try {
-  //       await _auth.signInWithEmailAndPassword(
-  //           email: _email, password: _password);
-  //     } catch (e) {
-  //       var message;
-  //       showError(message);
-  //       print(e);
-  //     }
-  //   }
-  // }
-
-  // showError(String errormessage) {
-  //   showDialog(
-  //       context: context,
-  //       builder: (BuildContext context) {
-  //         return AlertDialog(
-  //           title: Text('ERROR'),
-  //           content: Text(errormessage),
-  //           actions: <Widget>[
-  //             FlatButton(
-  //                 onPressed: () {
-  //                   Navigator.of(context).pop();
-  //                 },
-  //                 child: Text('OK'))
-  //           ],
-  //         );
-  //       });
-  // }
-
-  navigateToSignUp() async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-  }
-
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -77,7 +21,7 @@ class _LoginState extends State<Login> {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFCC81),
+      backgroundColor: Color(0xFFFFD89E),
       body: ListView(
         // child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,14 +41,6 @@ class _LoginState extends State<Login> {
                   alignment: Alignment.center,
                   fit: BoxFit.contain,
                 ),
-
-                // Text(
-                // '10 task done',
-                // style: TextStyle(
-                //   fontSize: 20,
-                //   color: Colors.white,
-                // ),
-                // ),
                 SizedBox(
                   height: 35.0,
                 ),
@@ -112,8 +48,6 @@ class _LoginState extends State<Login> {
             ),
           ),
           Container(
-            // height: 400,
-            // height: MediaQuery.of(context).size.height * 3,
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -122,7 +56,6 @@ class _LoginState extends State<Login> {
                   bottomLeft: Radius.circular(40.0),
                   bottomRight: Radius.circular(40.0)),
             ),
-
             child: Container(
               child: Column(
                 children: <Widget>[
@@ -133,7 +66,7 @@ class _LoginState extends State<Login> {
                     child: const Align(
                       alignment: Alignment.center,
                       child: Text(
-                        'Login Here',
+                        'SignUp Here',
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w700,
@@ -157,9 +90,7 @@ class _LoginState extends State<Login> {
                                   decoration: InputDecoration(
                                     labelText: 'Name',
                                     prefixIcon: Icon(Icons.person),
-                                    hintText: 'Name',
-                                    // helperText: 'Helper Text',
-                                    // counterText: '0 characters',
+                                    hintText: 'Enter Full Name',
                                     border: OutlineInputBorder(
                                       borderSide: const BorderSide(
                                           color: Colors.white, width: 2.0),
@@ -179,9 +110,7 @@ class _LoginState extends State<Login> {
                                   decoration: InputDecoration(
                                     labelText: 'Email',
                                     prefixIcon: Icon(Icons.email),
-                                    hintText: 'Enter Email',
-                                    // helperText: 'Helper Text',
-                                    // counterText: '0 characters',
+                                    hintText: 'Enter KBTUG Email ID',
                                     border: OutlineInputBorder(
                                       borderSide: const BorderSide(
                                           color: Colors.white, width: 2.0),
@@ -203,8 +132,6 @@ class _LoginState extends State<Login> {
                                     labelText: 'Password',
                                     prefixIcon: Icon(Icons.lock),
                                     hintText: 'Enter Password',
-                                    // helperText: 'Helper Text',
-                                    // counterText: '0 characters',
                                     border: OutlineInputBorder(
                                       borderSide: const BorderSide(
                                           color: Colors.white, width: 2.0),
@@ -214,15 +141,117 @@ class _LoginState extends State<Login> {
                                   obscureText: true,
                                   onSaved: (input) => _password = input!),
                             ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              child: TextFormField(
+                                  validator: (input) {
+                                    if (input!.length < 6)
+                                      return 'Provide Minimum 6 Character';
+                                  },
+                                  decoration: InputDecoration(
+                                    labelText: 'Re-enter Password',
+                                    prefixIcon: Icon(Icons.lock),
+                                    hintText: 'Re-Enter Password',
+                                    border: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.white, width: 2.0),
+                                      borderRadius: BorderRadius.circular(25.0),
+                                    ),
+                                  ),
+                                  obscureText: true,
+                                  onSaved: (input) => _password = input!),
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              child: TextFormField(
+                                  validator: (input) {
+                                    if (input!.isEmpty) return 'Enter Email';
+                                  },
+                                  decoration: InputDecoration(
+                                    labelText: 'KBTUG ID',
+                                    prefixIcon: Icon(Icons.account_box_sharp),
+                                    hintText: 'Enter KBTUG ID',
+                                    border: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.white, width: 2.0),
+                                      borderRadius: BorderRadius.circular(25.0),
+                                    ),
+                                  ),
+                                  onSaved: (input) => _email = input!),
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              child: TextFormField(
+                                  validator: (input) {
+                                    if (input!.isEmpty) return 'Enter Email';
+                                  },
+                                  decoration: InputDecoration(
+                                    labelText: 'PRN Number',
+                                    prefixIcon: Icon(Icons.email),
+                                    hintText: 'Enter PRN Number',
+                                    border: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.white, width: 2.0),
+                                      borderRadius: BorderRadius.circular(25.0),
+                                    ),
+                                  ),
+                                  onSaved: (input) => _prn = input!),
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              child: TextFormField(
+                                  validator: (input) {
+                                    if (input!.isEmpty) return 'Enter Email';
+                                  },
+                                  decoration: InputDecoration(
+                                    labelText: 'Phone Number',
+                                    prefixIcon: Icon(Icons.add_ic_call_sharp),
+                                    hintText: 'Enter Phone Number',
+                                    border: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.white, width: 2.0),
+                                      borderRadius: BorderRadius.circular(25.0),
+                                    ),
+                                  ),
+                                  onSaved: (input) => _email = input!),
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              child: TextFormField(
+                                  validator: (input) {
+                                    if (input!.isEmpty) return 'Enter Email';
+                                  },
+                                  decoration: InputDecoration(
+                                    labelText: 'Addhaar Card Number',
+                                    prefixIcon: Icon(Icons.account_balance),
+                                    hintText: 'Enter Valid Addhaar Card Number',
+                                    border: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.white, width: 2.0),
+                                      borderRadius: BorderRadius.circular(25.0),
+                                    ),
+                                  ),
+                                  onSaved: (input) => _email = input!),
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
                             const SizedBox(height: 20),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
                                   child: ElevatedButton(
-                                    // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                                    // onPressed: signUp,
                                     style: ElevatedButton.styleFrom(
                                       shape: new RoundedRectangleBorder(
                                         borderRadius:
@@ -230,43 +259,14 @@ class _LoginState extends State<Login> {
                                       ),
                                     ),
                                     onPressed: () {},
-
-                                    child: const Text('Login',
+                                    child: const Text('SignUp',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 15.0,
                                             fontWeight: FontWeight.bold)),
-                                    // color: Colors.orange,
-                                    // shape: RoundedRectangleBorder(
-                                    //   borderRadius: BorderRadius.circular(20.0),
-                                    // ),
                                   ),
                                 ),
                                 const SizedBox(width: 10),
-                                Container(
-                                  child: ElevatedButton(
-                                    // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                                    // onPressed: signUp,
-                                    style: ElevatedButton.styleFrom(
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(30.0),
-                                      ),
-                                    ),
-                                    onPressed: () {},
-                                    child: const Text(
-                                      'Forgot Password',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    // color: Colors.orange,
-                                    // shape: RoundedRectangleBorder(
-                                    //   borderRadius: BorderRadius.circular(20.0),
-                                    // ),
-                                  ),
-                                )
                               ],
                             )
                           ],
@@ -275,32 +275,9 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   GestureDetector(
-                      // child: const Text('Already Have An Account?'),
-                      child: Container(
-                    child: ElevatedButton(
-                      // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                      // onPressed: signUp,
-                      style: ElevatedButton.styleFrom(
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0),
-                        ),
-                      ),
-                      onPressed: navigateToSignUp,
-                      child: const Text(
-                        'Signup',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      // color: Colors.orange,
-                      // shape: RoundedRectangleBorder(
-                      //   borderRadius: BorderRadius.circular(20.0),
-                      // ),
-                    ),
+                    child: Text('Already Have An Account?'),
+                    // onTap: navigateToLogin,
                   )
-                      // onTap: navigateToLogin,
-                      )
                 ],
               ),
             ),
