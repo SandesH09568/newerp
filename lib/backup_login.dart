@@ -13,7 +13,7 @@ class MyHome extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFCC81),
+      backgroundColor: Colors.lightBlueAccent,
       body: ListView(
         // child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class MyHome extends StatelessWidget {
             // height: 400,
             // height: MediaQuery.of(context).size.height * 3,
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: Colors.yellow,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.0),
                   topRight: Radius.circular(40.0),
@@ -73,7 +73,7 @@ class MyHome extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFF2B5BBA),
+                          color: Colors.red,
                         ),
                       ),
                     ),
@@ -151,7 +151,7 @@ class MyHome extends StatelessWidget {
                                   onSaved: (input) => _password = input!),
                             ),
                             const SizedBox(height: 20),
-                            Column(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
@@ -170,7 +170,7 @@ class MyHome extends StatelessWidget {
                                     child: const Text('SignUp',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 15.0,
+                                            fontSize: 20.0,
                                             fontWeight: FontWeight.bold)),
                                     // color: Colors.orange,
                                     // shape: RoundedRectangleBorder(
@@ -194,7 +194,7 @@ class MyHome extends StatelessWidget {
                                       'Forgot Password',
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 15.0,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     // color: Colors.orange,
@@ -202,18 +202,33 @@ class MyHome extends StatelessWidget {
                                     //   borderRadius: BorderRadius.circular(20.0),
                                     // ),
                                   ),
-                                )
+                                ),
                               ],
-                            )
+                            ),
+                            Row(children: <Widget>[
+                              Container(
+                                child: GestureDetector(
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: const Text(
+                                            'Already Have An Account?'),
+                                      ),
+                                      Container(
+                                        child: const Text('Log In'),
+                                      )
+                                    ],
+                                  ),
+
+                                  // onTap: navigateToLogin,
+                                ),
+                              )
+                            ])
                           ],
                         ),
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    child: Text('Already Have An Account?'),
-                    // onTap: navigateToLogin,
-                  )
                 ],
               ),
             ),

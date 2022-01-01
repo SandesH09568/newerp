@@ -1,11 +1,71 @@
-// ignore_for_file: unnecessary_new
-
 import 'package:flutter/material.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'SignUp.dart';
 
-import 'login.dart';
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
 
-class MyHome extends StatelessWidget {
-  late String _name, _email, _password;
+late String _name, _email, _password;
+
+class _LoginState extends State<Login> {
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  // checkAuthentification() async {
+  //   _auth.authStateChanges().listen((user) {
+  //     if (user != null) {
+  //       print(user);
+
+  //       Navigator.pushReplacementNamed(context, "/");
+  //     }
+  //   });
+  // }
+
+  @override
+  void initState() {
+    super.initState();
+    // this.checkAuthentification();
+  }
+
+  // login() async {
+  //   if (_formKey.currentState!.validate()) {
+  //     _formKey.currentState!.save();
+
+  //     try {
+  //       await _auth.signInWithEmailAndPassword(
+  //           email: _email, password: _password);
+  //     } catch (e) {
+  //       var message;
+  //       showError(message);
+  //       print(e);
+  //     }
+  //   }
+  // }
+
+  // showError(String errormessage) {
+  //   showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: Text('ERROR'),
+  //           content: Text(errormessage),
+  //           actions: <Widget>[
+  //             FlatButton(
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop();
+  //                 },
+  //                 child: Text('OK'))
+  //           ],
+  //         );
+  //       });
+  // }
+
+  // navigateToSignUp() async {
+  //   Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+  // }
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
