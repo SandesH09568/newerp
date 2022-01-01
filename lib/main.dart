@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
+import 'login.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -10,9 +11,10 @@ void main() async {
       debugShowCheckedModeBanner: false,
       initialRoute: "home",
       routes: {
-        "home": (context) => MyHome(),
+        // "home": (context) => MyHome(),
+        "login": (context) => Login(),
+
         // "reg": (context) => MyReg(),
-        // "login": (context) => MyLogin(),
         // "chat": (context) => MyChat(),
         // "image": (context) => MyImage(),
         // "mysplash": (context) => MySplash(),

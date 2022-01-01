@@ -13,7 +13,7 @@ class MyHome extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Color(0xFFFFCC81),
       body: ListView(
         // child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class MyHome extends StatelessWidget {
             // height: 400,
             // height: MediaQuery.of(context).size.height * 3,
             decoration: const BoxDecoration(
-              color: Colors.yellow,
+              color: Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.0),
                   topRight: Radius.circular(40.0),
@@ -73,7 +73,7 @@ class MyHome extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w700,
-                          color: Colors.red,
+                          color: Color(0xFF2B5BBA),
                         ),
                       ),
                     ),
