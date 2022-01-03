@@ -1,45 +1,17 @@
-// ignore_for_file: unnecessary_new
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
 
-import 'package:http/http.dart' as http;
-
-import 'login.dart';
-
-class MyHome extends StatefulWidget {
-  const MyHome({Key? key}) : super(key: key);
-
-  @override
-  _MyHomeState createState() => _MyHomeState();
+main() {
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
-List _loadedPhotos = [];
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-class _MyHomeState extends State<MyHome> {
-  web() async {
-    var r = await http
-        .get(Uri.http("192.168.43.111:8000", "/user/student/kbtug19368/"));
-    print(r.body);
-    print(json.decode(r.body));
-
-    // Map userMap = jsonDecode(json.decode(r.body));
-    // var user = User.fromJson(userMap);
-
-    // final String content = await r.transform(utf8.decoder).join();
-    final List data = json.decode(r.body);
-
-    print(data);
-
-    setState(() {
-      _loadedPhotos = data;
-    });
-
-    // var url =
-    //     Uri.http("54.89.4.30", "/cgi-bin/docker_cgi.py", {"x": cmd, "y": cn});
-    // var response = await http.get(url);
-    // print(response.body);
-  }
+//  Widget lw(BuildContext context) => Container();
 
   @override
   Widget build(BuildContext context) {
@@ -56,28 +28,22 @@ class _MyHomeState extends State<MyHome> {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextButton(
-                  onPressed: web,
-                  child: const Text("Click to run"),
-                ),
+              children: const [
                 // SizedBox(
                 //   height: 10.0,
                 // ),
-
-                // Text(_loadedPhotos[0]["STUDENT_ID"]),
-
-                // Text(
-                //   style: TextStyle(
-                //     fontSize: 23,
-                //     fontWeight: FontWeight.w700,
-                //     color: Colors.yellow,
-                //   ),
-                // ),
-                const SizedBox(
+                Text(
+                  'Rohan Shelar',
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.yellow,
+                  ),
+                ),
+                SizedBox(
                   height: 10.0,
                 ),
-                const Text(
+                Text(
                   'Information Technology',
                   style: TextStyle(
                     fontSize: 20,
@@ -85,10 +51,10 @@ class _MyHomeState extends State<MyHome> {
                     color: Colors.yellow,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 10.0,
                 ),
-                const Text(
+                Text(
                   'KBTUG18181',
                   style: TextStyle(
                     fontSize: 20,
@@ -96,7 +62,7 @@ class _MyHomeState extends State<MyHome> {
                     color: Colors.yellow,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 10.0,
                 ),
               ],

@@ -2,11 +2,15 @@
 
 import 'package:flutter/material.dart';
 
+import 'home.dart';
 import 'signup.dart';
+import 'student_profile.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'SignUp.dart';
 
 class Login extends StatefulWidget {
+  Login({Key? key}) : super(key: key);
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -70,6 +74,10 @@ class _LoginState extends State<Login> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
 
+  navigateToHome() async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyHome()));
+  }
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -117,10 +125,11 @@ class _LoginState extends State<Login> {
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.0),
-                  topRight: Radius.circular(40.0),
-                  bottomLeft: Radius.circular(40.0),
-                  bottomRight: Radius.circular(40.0)),
+                topLeft: Radius.circular(40.0),
+                topRight: Radius.circular(40.0),
+                // bottomLeft: Radius.circular(40.0),
+                // bottomRight: Radius.circular(40.0)
+              ),
             ),
 
             child: Container(
@@ -229,8 +238,8 @@ class _LoginState extends State<Login> {
                                             new BorderRadius.circular(30.0),
                                       ),
                                     ),
-                                    onPressed: () {},
 
+                                    onPressed: navigateToHome,
                                     child: const Text('Login',
                                         style: TextStyle(
                                             color: Colors.white,
@@ -244,29 +253,32 @@ class _LoginState extends State<Login> {
                                 ),
                                 const SizedBox(width: 10),
                                 Container(
-                                  child: ElevatedButton(
-                                    // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                                    // onPressed: signUp,
-                                    style: ElevatedButton.styleFrom(
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(30.0),
-                                      ),
-                                    ),
-                                    onPressed: () {},
-                                    child: const Text(
-                                      'Forgot Password',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    // color: Colors.orange,
-                                    // shape: RoundedRectangleBorder(
-                                    //   borderRadius: BorderRadius.circular(20.0),
-                                    // ),
-                                  ),
-                                )
+                                  child: new GestureDetector(
+                                      child: const Text('Forgot Password'),
+                                      onTap: () => navigateToSignUp),
+                                  // child: ElevatedButton(
+                                  //   // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                                  //   // onPressed: signUp,
+                                  //   style: ElevatedButton.styleFrom(
+                                  //     shape: new RoundedRectangleBorder(
+                                  //       borderRadius:
+                                  //           new BorderRadius.circular(30.0),
+                                  //     ),
+                                  //   ),
+                                  //   onPressed: () {},
+                                  //   child: const Text(
+                                  //     'Forgot Password',
+                                  //     style: TextStyle(
+                                  //         color: Colors.white,
+                                  //         fontSize: 15.0,
+                                  //         fontWeight: FontWeight.bold),
+                                  //   ),
+                                  // color: Colors.orange,
+                                  // shape: RoundedRectangleBorder(
+                                  //   borderRadius: BorderRadius.circular(20.0),
+                                  // ),
+                                  // ),
+                                ),
                               ],
                             )
                           ],
@@ -275,32 +287,41 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   GestureDetector(
-                      // child: const Text('Already Have An Account?'),
-                      child: Container(
-                    child: ElevatedButton(
-                      // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                      // onPressed: signUp,
-                      style: ElevatedButton.styleFrom(
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: const Text('Not having an Account?'),
                         ),
-                      ),
-                      onPressed: navigateToSignUp,
-                      child: const Text(
-                        'Signup',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      // color: Colors.orange,
-                      // shape: RoundedRectangleBorder(
-                      //   borderRadius: BorderRadius.circular(20.0),
-                      // ),
+                        Container(
+                            child: ElevatedButton(
+                          // padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                          // onPressed: signUp,
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.red, // background
+                            onPrimary: Colors.yellow,
+                            shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0),
+                            ),
+                          ),
+                          onPressed: navigateToSignUp,
+                          child: const Text(
+                            'Signup',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          // color: Colors.orange,
+                          // shape: RoundedRectangleBorder(
+                          //   borderRadius: BorderRadius.circular(20.0),
+                          // ),
+                        ))
+                      ],
                     ),
+
+                    // onTap: navigateToLogin,
                   )
-                      // onTap: navigateToLogin,
-                      )
                 ],
               ),
             ),

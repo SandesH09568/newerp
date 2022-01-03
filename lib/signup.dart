@@ -1,4 +1,9 @@
+// ignore_for_file: unnecessary_new
+
 import 'package:flutter/material.dart';
+
+import 'home.dart';
+import 'login.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'signup.dart';
 
@@ -14,6 +19,14 @@ class SignUp extends StatefulWidget {
 late String _name, _email, _password, _kbtug, _addhar, _prn, _kbtemail, _phone;
 
 class _SignUpState extends State<SignUp> {
+  navigateToLogin() async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+  }
+
+  navigateToHome() async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyHome()));
+  }
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -258,7 +271,7 @@ class _SignUpState extends State<SignUp> {
                                             new BorderRadius.circular(30.0),
                                       ),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: navigateToHome,
                                     child: const Text('SignUp',
                                         style: TextStyle(
                                             color: Colors.white,
@@ -276,7 +289,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   GestureDetector(
                     child: Text('Already Have An Account?'),
-                    // onTap: navigateToLogin,
+                    onTap: navigateToLogin,
                   )
                 ],
               ),

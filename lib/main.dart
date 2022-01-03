@@ -4,6 +4,7 @@ import 'home.dart';
 import 'login.dart';
 import 'signup.dart';
 import 'splashscreen.dart';
+import 'student_profile.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -13,11 +14,11 @@ void main() async {
       debugShowCheckedModeBanner: false,
       initialRoute: "mysplash",
       routes: {
-        // "home": (context) => MyHome(),
+        "home": (context) => MyHome(),
         "login": (context) => Login(),
         "signup": (context) => SignUp(),
 
-        // "reg": (context) => MyReg(),
+        "student_profile": (context) => Student_Profile(),
         // "chat": (context) => MyChat(),
         // "image": (context) => MyImage(),
         "mysplash": (context) => MySplash(),
